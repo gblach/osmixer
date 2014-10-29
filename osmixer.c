@@ -68,7 +68,7 @@ void *volume_loop() {
     while(1) {
         vol = volume_read(mixer);
 
-         if(vol_prev != vol) {
+        if(vol_prev != vol) {
             vol_prev = vol;
             counter = 8;
         }
@@ -98,7 +98,10 @@ EAPI_MAIN int elm_main(int ac, char **av) {
     }
 
     if(cmdl.help) {
-        puts("On Screen Mixer");
+        puts("On Screen Mixer - displays audio volume while it's changed");
+        puts("./osmixer [-h] [-m /dev/mixer]");
+        puts("  -h  display this help message");
+        puts("  -m  select mixer device");
         return 0;
     }
 
